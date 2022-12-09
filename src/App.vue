@@ -1,17 +1,35 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <Hearder msg="Find your favorite singer albums"/>
+  <AlbumnList />
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
+<script lang="ts">
+import {defineComponent, reactive, ref, toRefs } from 'vue';
+import {searchService} from  './services/search.service';
+import { SearchDataInterface } from './types/data.interface';
+import AlbumnList from './components/list/AlbumnList.vue';
+import Hearder from './components/Header.vue'
+export default defineComponent({
   name: 'App',
   components: {
-    HelloWorld
+    Hearder,
+    AlbumnList,
+  },
+  setup() {// composition api
+    let albums = reactive<{data: SearchDataInterface}>({data: {}})
+    let searchText = ref('');
+    const handleSearch = async (search: string): Promise<void> => {
+      const value = await searchService(search);
+      albums.data = value;
+      console.log(value, 'value')
+      console.log('data', albums)
+    }
+
+    return {
+      handleSearch, ...toRefs(albums), searchText
+    }
   }
-}
+});
 </script>
 
 <style>
