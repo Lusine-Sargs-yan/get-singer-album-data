@@ -2,9 +2,9 @@
   <form @submit.prevent="handleSearch(searchText)">
     <input type="text" v-model="searchText" />
 <!--    <button @click="handleSearch(searchText)">Search</button>-->
-    <BaseButton title="search" :class-name="btn"/>
-    <ul v-if="data.results">
-      <li v-for="item in data.results" :key="item.artistId">
+    <BaseButton title="search" />
+    <ul v-if="data.results" class="album-list__items">
+      <li v-for="item in data.results" :key="item.artistId" class="album-list__item">
         <AlbumItem :album="item" />
       </li>
     </ul>
@@ -54,5 +54,21 @@ input {
   font-weight: 500;
   font-size: 16px;
   line-height: 20px;
+}
+
+.album-list__item {
+  margin: 10px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #2e0838;
+  border-radius: 16px;
+  flex: 0 0 25%;
+}
+.album-list__items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 </style>

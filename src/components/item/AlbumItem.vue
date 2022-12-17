@@ -1,8 +1,7 @@
 <template>
-  <h3>Album Name: {{ album.collectionName }}</h3>
   <img :src="album.artworkUrl100" alt="Image">
-  <p>Price: {{ album.collectionPrice }} {{ album.currency }}</p>
-
+  <h3 class="album-list__title">Album Name: {{ album.collectionName }}</h3>
+  <p class="album-list__text">Price: {{ album.collectionPrice }} {{ album.currency }}</p>
 </template>
 
 <script lang="ts">
@@ -25,5 +24,18 @@ export default defineComponent({
 </script>
 
 <style scoped>
-
+.album-list__title {
+  font-size: 20px;
+  color: #2e0838;
+}
+.album-list__text{
+   font-size: 20px;
+   font-weight: 400;
+   color: #2e0838;
+}
+/*img {*/
+/*  width: 100%;*/
+/*  !*min-width: 0;*!*/
+/*  border-radius: 16px;*/
+/*}*/
 </style>

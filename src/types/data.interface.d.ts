@@ -17,4 +17,5 @@ export interface Result {
     collectionCensoredName: string;
     country: string;
     currency: number;
+    releaseDate: string;
 }

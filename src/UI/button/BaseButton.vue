@@ -45,7 +45,7 @@ export default defineComponent({
 .base-button {
   border: none;
   color: #ffffff;
-  padding: 16px 25px;
+  padding: 12px 25px;
   cursor: pointer;
   background: #e0b3de;
   box-shadow: 2px 3px 3px rgb(0 0 0 / 19%);
